@@ -31,31 +31,35 @@ include 'connection.php';
 </head>
 <?php
 
-	if(isset($_GET['doctor_id'])) 
+	if(isset($_GET['medicine_id'])) 
 	{
 	
 	
-		//echo $_GET['doctor_id'];die;
+		//echo $_GET['medicine_id'];die;
 
 
-		$doctor_id = $_GET['doctor_id'];
+		$medicine_id = $_GET['medicine_id'];
 		
-		 $sql = "SELECT * FROM doctor_info WHERE doctor_id = '$doctor_id' ";
+		 $sql = "SELECT * FROM medicine_info WHERE medicine_id = '$medicine_id' ";
 	
 		//echo $sql; die;
 		
 		$result = $conn->query($sql);
 		if($row = mysqli_fetch_array($result)) 
 		{
-			          $doctor_id                    =     $row['doctor_id'];
-                $doctor_registration_id       =     $row['doctor_registration_id'];
-                $doctor_type                  =     $row['doctor_type'];
-                $doctor_name                  =     $row['doctor_name'];
-                $doctor_email                 =     $row['doctor_email'];
-                $doctor_contact_no            =     $row['doctor_contact_no'];
-                $doctor_registration_status   =     $row['doctor_registration_status'];
-                $registration_year            =     $row['registration_year'];
-                $doctor_address               =     $row['doctor_address'];
+			    $medicine_id                    =     $row['medicine_id'];
+                $medicine_type                  =     $row['medicine_type'];
+                $generic_name                   =     $row['generic_name'];
+                $strength                       =     $row['strength'];
+                $manufactured                   =     $row['manufactured'];
+                $unit_price                     =     $row['unit_price'];
+                $indications                    =     $row['indications'];
+                $side_effect                    =     $row['side_effect'];
+                $contradiction                  =     $row['contradiction'];
+                $precautions_warning            =     $row['precautions_warning'];
+                $storage_condition              =     $row['storage_condition'];
+
+
 
 			
 			
@@ -70,21 +74,25 @@ include 'connection.php';
 	
 	if(isset($_POST['update'])) 
 	{
-		            $doctor_id    			          =       $_POST['doctor_id'];
+		            $medicine_id    			          =       $_POST['medicine_id'];
                
-		            $doctor_registration_id       =       $_POST['doctor_registration_id'];
-		            $doctor_type 		              =       $_POST['doctor_type'];
-		            $doctor_name 	                =       $_POST['doctor_name'];
-	              $doctor_email   	            =       $_POST['doctor_email'];
-		            $doctor_contact_no   	        =       $_POST['doctor_contact_no'];
-		            $doctor_registration_status   =       $_POST['doctor_registration_status'];
-		            $registration_year            =       $_POST['registration_year'];
-		            $doctor_address               =       $_POST['doctor_address'];
-               
+		            $medicine_type                        =       $_POST['medicine_type'];
+		            $generic_name 		                  =       $_POST['generic_name'];
+		            $strength 	                          =       $_POST['strength'];
+	                $manufactured   	                  =       $_POST['manufactured'];
+		            $unit_price   	                      =       $_POST['unit_price'];
+		            $indications                          =       $_POST['indications'];
+		            $side_effect                          =       $_POST['side_effect'];
+		            $contradiction                        =       $_POST['contradiction'];
+               	    $precautions_warning                  =       $_POST['precautions_warning'];
+		            $storage_condition                    =       $_POST['storage_condition'];
 
-		$sql = "UPDATE doctor_info set doctor_registration_id ='$doctor_registration_id', doctor_type ='$doctor_type',
-    doctor_name ='$doctor_name', doctor_email='$doctor_email', doctor_contact_no ='$doctor_contact_no',
-    doctor_registration_status ='$doctor_registration_status', registration_year ='$registration_year',doctor_address ='$doctor_address' WHERE doctor_id ='$doctor_id'";
+
+		$sql = "UPDATE medicine_info set medicine_type ='$medicine_type', generic_name ='$generic_name',
+                strength ='$strength', manufactured='$manufactured', unit_price ='$unit_price',
+                indications ='$indications', side_effect ='$side_effect',contradiction ='$contradiction',
+                precautions_warning='$precautions_warning',storage_condition='$storage_condition'
+                 WHERE medicine_id ='$medicine_id'";
 		 
 	//echo $sql; die;
 		
@@ -93,7 +101,7 @@ include 'connection.php';
 		if($result) 
 		{
 			echo "Updated Successfully!";
-			echo "<meta http-equiv='refresh' content='2;url=doctor_info_listview.php'>";
+			echo "<meta http-equiv='refresh' content='2;url=medicine_info_listview.php'>";
 			exit();
 		}
 	}
@@ -180,81 +188,95 @@ include 'connection.php';
       </div>
     </aside>
     <!--sidebar end-->
-    <!-- ***** MAIN CONTENT ***** -->
+    <!-- *****MAIN CONTENT ***** -->
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3>Doctor Information</h3>
+        <h3>Medicine Information</h3>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
             <div class="form-panel">
               <h4 class="mb"></h4>
-              <form class="form-horizontal style-form" method="post" action="edit_doctor_info.php">
+              <form class="form-horizontal style-form" method="post" action="edit_medicine_info.php">
 			      
 			 <!-- <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor ID :</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Medicine ID :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_id" value="<?php  echo $doctor_id;  ?>">
+                    <input type="text" class="form-control" name="medicine_id" value="<?php  echo $medicine_id;  ?>">
                   </div>
                 </div>
 			   -->
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration ID :</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Medicine Type :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_registration_id" value="<?php  echo $doctor_registration_id;   ?>">
+                    <input type="text" class="form-control" name="medicine_type" value="<?php  echo $medicine_type;   ?>">
                   </div>
                 </div>
 				
 					
 				
 				<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Type :</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Generic Name :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_type" value="<?php  echo $doctor_type;   ?>">
+                    <input type="text" class="form-control" name="generic_name" value="<?php  echo $generic_name;   ?>">
                   </div>
                 </div>
 				
 					<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Name :</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Strength :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_name" value="<?php  echo $doctor_name;   ?>">
+                    <input type="text" class="form-control" name="strength" value="<?php  echo $strength;   ?>">
                   </div>
                 </div>
 				
 				<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Email :</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Manufactured By :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_email" value="<?php  echo $doctor_email;   ?>">
+                    <input type="text" class="form-control" name="manufactured" value="<?php  echo $manufactured;   ?>">
                   </div>
                 </div>
 				<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Contact No:</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Unit Price :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_contact_no" value="<?php  echo $doctor_contact_no;   ?>">
+                    <input type="text" class="form-control" name="unit_price" value="<?php  echo $unit_price;   ?>">
                   </div>
           </div>
 				
 				
 					<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration Status:</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Indications :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_registration_status" value="<?php  echo $doctor_registration_status;   ?>">
-                     
+                    <input type="text" class="form-control" name="indications" value="<?php  echo $indications;   ?>">
                   </div>
           </div>
           <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration Year:</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Side Effects :</label>
                   <div class="col-sm-6">
-                    <input type="date" class="form-control" name="registration_year" value="<?php  echo $registration_year;   ?>">
+                    <input type="text" class="form-control" name="side_effect" value="<?php  echo $side_effect;   ?>">
                   </div>
           </div>
            <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Address:</label>
+                  <label class="col-sm-2 col-sm-2 control-label">Contradictions :</label>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control" name="doctor_address" value="<?php  echo $doctor_address ;   ?>">
+                    <input type="text" class="form-control" name="contradiction" value="<?php  echo $contradiction ;   ?>">
                   </div>
-          </div>
+           </div>
+
+           <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label"> Precaution & Warning :</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="precautions_warning" value="<?php  echo $precautions_warning ;   ?>">
+                  </div>
+           </div>
+
+           <div class="form-group">
+                  <label class="col-sm-2 col-sm-2 control-label">Storage Conditions :</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" name="storage_condition" value="<?php  echo $storage_condition ;   ?>">
+                  </div>
+           </div>
+           
 
 					</select>
                    
@@ -271,7 +293,7 @@ include 'connection.php';
 				<div class="form-group" align="center">
 				
 					<input type="submit" class="btn btn-info" name="update" value="Update"/>
-					<input type="hidden" class="form-control" name="doctor_id" value="<?php  echo $doctor_id;   ?>">
+					<input type="hidden" class="form-control" name="medicine_id" value="<?php  echo $medicine_id;   ?>">
 				
 				</div>
                 

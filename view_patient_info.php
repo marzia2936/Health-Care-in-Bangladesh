@@ -109,9 +109,9 @@
               <span>User Part</span>
             </a>
             <ul class="sub">
-              <li><a href="patient_info_listview.php">Patient Info Listview</a></li>
+              <li><a href="patient_info_listview.php">Patient Information</a></li>
              
-              <li><a href="doctor_info_listview.php">Doctor Information Listview</a></li>
+              <li><a href="doctor_info_listview.php">Doctor Information</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -120,9 +120,9 @@
               <span>Admin Part</span>
             </a>
             <ul class="sub">
-             <li><a href="patient_info_listview.php">Patient Info Listview</a></li>
+             <li><a href="patient_info_listview.php">Patient Information</a></li>
              
-              <li><a href="doctor_info_listview.php">Doctor Information Listview</a></li>
+              <li><a href="doctor_info_listview.php">Doctor Information</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -131,9 +131,9 @@
               <span>Report Part</span>
             </a>
             <ul class="sub">
-             <li><a href="patient_info_listview.php">Patient Info Listview</a></li>
+             <li><a href="patient_info_listview.php">Patient Information</a></li>
              
-              <li><a href="doctor_info_listview.php">Doctor Information Listview</a></li>
+              <li><a href="doctor_info_listview.php">Doctor Information</a></li>
 
             </ul>
           </li>
@@ -219,34 +219,17 @@
                       
           
                   </div>
-             
-							
-							
-				
-                
+             													
+				               
               </form>
             </div>
           </div>
-          <!-- col-lg-12-->
         </div>
-        <!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
-        
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        
-        <!-- /row -->
+       
       </section>
-      <!-- /wrapper -->
+      
     </section>
-    <!-- /MAIN CONTENT -->
-    <!--main content end-->
-    <!--footer start-->
     
-    <!--footer end-->
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>

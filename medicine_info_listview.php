@@ -71,6 +71,7 @@ include 'connection.php';
               <li><a href="patient_info_listview.php">Patient Information</a></li>
              
               <li><a href="doctor_info_listview.php">Doctor Information</a></li>
+              <li><a href="medicine_info_listview.php"> Medicine Information</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -109,10 +110,10 @@ include 'connection.php';
      <div class="col-md-12">
       <div class="content-panel">
               <div class="div1">
-                <h4>Doctor Information List</h4>
+                <h4>Medicine Information List</h4>
               </div>
           <div class="div2">
-            <a href="doctor_info.php" class="button3">Add Doctor</a>
+            <a href="medicine_info.php" class="button3">Add Medicine</a>
             <a href="index.php" class="button3">Back to Page-></a>
           </div>
         <div class="table1">
@@ -121,14 +122,18 @@ include 'connection.php';
               <tr>
                 
                       <th>SI</th>
-                        <th>Registration ID:</th>
-                        <th>Doctory Type</th>
-                        <th>Doctor Name</th>
-                        <th>Doctor Email</th>
-                        <th>Doctor Contact No.</th>
-                        <th>Registration Status</th>
-                        <th>Registration Year</th>
-                        <th>Address</th>
+                        <th>Medicine Type</th>
+                        <th>Generic Name</th>
+                        <th>Strength</th>
+                        <th>Manufactured By</th>
+                        <th>Unit Price</th>
+                        <!-- <th>Indications</th>   <td>$indications</td> -->
+                        <th>Side Effects</th>
+                       
+                        <th>Contradictions</th>
+                        <th>Precautions & Warning</th>
+                        <th>Storage Conditions</th>
+
                         <th>Action</th>
               </tr>
 
@@ -136,16 +141,16 @@ include 'connection.php';
                       
                       /*Delete Code*/
                       
-                      if(isset($_GET['doctor_id'])) 
+                      if(isset($_GET['medicine_id'])) 
                       {
-                        $doctor_id = $_GET['doctor_id'];
+                        $medicine_id = $_GET['medicine_id'];
                         
-                        $sql = "DELETE FROM doctor_info WHERE doctor_id='$doctor_id'";
+                        $sql = "DELETE FROM medicine_info WHERE medicine_id='$medicine_id'";
                         $conn->query($sql);
                         
                       }
 
-                  $sql = "Select * from doctor_info ";
+                  $sql = "Select * from medicine_info ";
                   $rec = $conn->query($sql);
                   $i = 0;
                   
@@ -153,31 +158,38 @@ include 'connection.php';
                       {
                         $i++;
 
-                        $doctor_id                    =     $row['doctor_id'];
-                        $doctor_registration_id       =     $row['doctor_registration_id'];
-                        $doctor_type                  =     $row['doctor_type'];
-                        $doctor_name                  =     $row['doctor_name'];
-                        $doctor_email                 =     $row['doctor_email'];
-                        $doctor_contact_no            =     $row['doctor_contact_no'];
-                        $doctor_registration_status   =     $row['doctor_registration_status'];
-                        $registration_year            =     $row['registration_year'];
-                        $doctor_address               =     $row['doctor_address'];
+                        $medicine_id                   =     $row['medicine_id'];
+                        $medicine_type                 =     $row['medicine_type'];
+                        $generic_name                  =     $row['generic_name'];
+                        $strength                      =     $row['strength'];
+                        $manufactured                  =     $row['manufactured'];
+                        $unit_price                    =     $row['unit_price'];
+                        $indications                   =     $row['indications'];
+                        $side_effect                   =     $row['side_effect'];
+                        $contradiction                 =     $row['contradiction'];
+                        $precautions_warning            =     $row['precautions_warning'];
+                        $storage_condition             =     $row['storage_condition'];
+
+
 
                         echo "<tr>
-                            <td>$doctor_id</td>
-                            <td>$doctor_registration_id</td>
-                            <td>$doctor_type</td>
-                            <td>$doctor_name</td>
-                            <td> $doctor_email</td>
-                            <td>$doctor_contact_no</td>
-                            <td>$doctor_registration_status</td>
-                            <td>$registration_year</td>
-                            <td>$doctor_address</td>
+                            <td>$medicine_id</td>
+                            <td>$medicine_type</td>
+                            <td>$generic_name</td>
+                            <td>$strength</td>
+                            <td> $manufactured</td>
+                            <td>$unit_price</td>
+                           
+                            <td>$side_effect</td>
+                            
+                            <td>$contradiction</td>
+                            <td>$precautions_warning</td>
+                            <td>$storage_condition</td>
                             
                             <td>
-                              <a href='view_doctor_info.php?doctor_id=$doctor_id' class='button4'>View</a> | 
-                              <a href='edit_doctor_info.php?doctor_id=$doctor_id' class='button1'>Edit</a> | 
-                              <a href='$_SERVER[SCRIPT_NAME]?doctor_id=$doctor_id' class='button2' onClick=\"return confirm('Are you sure?')\">Delete</a>
+                              <a href='view_medicine_info.php?medicine_id=$medicine_id' class='button4'>View</a> | 
+                              <a href='edit_medicine_info.php?medicine_id=$medicine_id' class='button1'>Edit</a> | 
+                              <a href='$_SERVER[SCRIPT_NAME]?medicine_id=$medicine_id' class='button2' onClick=\"return confirm('Are you sure?')\">Delete</a>
                               
                             </td>
                           </tr>";

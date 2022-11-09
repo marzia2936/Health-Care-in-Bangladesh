@@ -38,27 +38,29 @@
 
 	<?php
  
-  if(isset($_GET['doctor_id'])) 
+  if(isset($_GET['medicine_id'])) 
 	{
 	
 	
 		//echo $_GET['book_id'];die;
-		$doctor_id = $_GET['doctor_id'];
+		$medicine_id = $_GET['medicine_id'];
 
-         $sql = "SELECT * FROM doctor_info WHERE doctor_id = '$doctor_id' ";
+         $sql = "SELECT * FROM medicine_info WHERE medicine_id = '$medicine_id' ";
         $result = $conn->query($sql);
 
         if($row = mysqli_fetch_array($result)) 
 		{
-                $doctor_id                    =     $row['doctor_id'];
-                $doctor_registration_id       =     $row['doctor_registration_id'];
-                $doctor_type                  =     $row['doctor_type'];
-                $doctor_name                  =     $row['doctor_name'];
-                $doctor_email                 =     $row['doctor_email'];
-                $doctor_contact_no            =     $row['doctor_contact_no'];
-                $doctor_registration_status   =     $row['doctor_registration_status'];
-                $registration_year            =     $row['registration_year'];
-                $doctor_address               =     $row['doctor_address'];
+                $medicine_id                    =     $row['medicine_id'];
+                $medicine_type                  =     $row['medicine_type'];
+                $generic_name                   =     $row['generic_name'];
+                $strength                       =     $row['strength'];
+                $manufactured                   =     $row['manufactured'];
+                $unit_price                     =     $row['unit_price'];
+                $indications                    =     $row['indications'];
+                $side_effect                    =     $row['side_effect'];
+                $contradiction                  =     $row['contradiction'];
+                $precautions_warning            =     $row['precautions_warning'];
+                $storage_condition              =     $row['storage_condition'];
 
   }
 }
@@ -149,8 +151,8 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h3>View Doctor Information</h3>
-         <a href="doctor_info_listview.php" class="button3">Back to Page-></a>
+        <h3>View Medicine Information</h3>
+         <a href="medicine_info_listview.php" class="button3">Back to Page-></a>
         <!-- BASIC FORM ELELEMNTS -->
         <div class="row mt">
           <div class="col-lg-12">
@@ -158,72 +160,77 @@
               <h4 class="mb"></h4>
               <form class="form-horizontal style-form" method="POST" action="">
 			  
-			      <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration ID :</label>
+			         <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Medicine ID :</label>
                   <div class="col-sm-6">
-                    
-				          <label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_registration_id;   ?></label>
-                
-                </div>
+                     <label class="col-sm-6 col-sm-6 control-label"><?php  echo $medicine_id;   ?></label>
+                  </div>
                 </div>
 			  
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Type :</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Medicine Type :</label>
                   <div class="col-sm-6">
-				  	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_type;   ?></label>
+				  	        <label class="col-sm-6 col-sm-6 control-label"><?php  echo $medicine_type;   ?></label>
                   </div>
                 </div>
                 
                 <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Name :</label>
+                    <label class="col-sm-2 col-sm-2 control-label">Generic Name :</label>
                   <div class="col-sm-6">
-				  	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_name;   ?></label>
+				  	        <label class="col-sm-6 col-sm-6 control-label"><?php  echo $generic_name;   ?></label>
                   </div>
                 </div>
 				
 			
-					<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Email :</label>
-                  <div class="col-sm-6">
-                    
-					<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_email;?> </label>
+					     <div class="form-group">
+                     <label class="col-sm-2 col-sm-2 control-label">Strength :</label>
+                  <div class="col-sm-6">                    
+					           <label class="col-sm-6 col-sm-6 control-label"><?php  echo $strength;?> </label>
                   </div>
                 </div>
 				
-				<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Contact No:</label>
+				       <div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Manufactured By:</label>
                   <div class="col-sm-6">
-				  	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_contact_no;?></label>
+				  	        <label class="col-sm-6 col-sm-6 control-label"><?php  echo $manufactured;?></label>
                   </div>
                 </div>
 				
-					<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration Status :</label>
+				    	<div class="form-group">
+                    <label class="col-sm-2 col-sm-2 control-label">Unit Price :</label>
                   <div class="col-sm-6">
-				  	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_registration_status; ?></label>
+				  	        <label class="col-sm-6 col-sm-6 control-label"><?php  echo $unit_price; ?></label>
                   </div>
-                </div>
+              </div>
 				
-				<div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Registration Year : </label>
+				      <div class="form-group">
+                   <label class="col-sm-2 col-sm-2 control-label">Indications : </label>
+                  <div class="col-sm-6">                    
+				          	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $indications;?></label>
+                  </div>                    
+              </div>
+
+               <div class="form-group">
+                     <label class="col-sm-2 col-sm-2 control-label">Side Effects : </label>
                   <div class="col-sm-6">
-                    
-					<label class="col-sm-6 col-sm-6 control-label"><?php  echo $registration_year;?></label>
-                  </div>
-                    
-                   </div>
-             <div class="form-group">
-                  <label class="col-sm-2 col-sm-2 control-label">Doctor Address : </label>
+                    	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $side_effect;?></label>
+                  </div>                   
+               </div>
+
+                <div class="form-group">
+                      <label class="col-sm-2 col-sm-2 control-label">Precautions & Warning : </label>
                   <div class="col-sm-6">
-                    
-					<label class="col-sm-6 col-sm-6 control-label"><?php  echo $doctor_address;?></label>
-                  </div>
-                    
-                   </div>
-							
-							
-				
-                
+                    	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $precautions_warning;?></label>
+                  </div>                   
+               </div>
+                <div class="form-group">
+                     <label class="col-sm-2 col-sm-2 control-label">Storage Conditions : </label>
+                  <div class="col-sm-6">
+                    	<label class="col-sm-6 col-sm-6 control-label"><?php  echo $storage_condition;?></label>
+                  </div>                   
+               </div>
+																
+               
               </form>
             </div>
           </div>

@@ -140,9 +140,9 @@ include 'connection.php';
               <span>User Part</span>
             </a>
             <ul class="sub">
-              <li><a href="patient_info_listview.php">Patient Info Listview</a></li>
+              <li><a href="patient_info_listview.php">Patient Information</a></li>
              
-              <li><a href="doctor_info_listview.php">Doctor Information Listview</a></li>
+              <li><a href="doctor_info_listview.php">Doctor Information</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -174,10 +174,7 @@ include 'connection.php';
         <!-- sidebar menu end-->
       </div>
     </aside>
-    <!--sidebar end-->
-    <!-- **********************************************************************************************************************************************************
-        MAIN CONTENT
-        *********************************************************************************************************************************************************** -->
+
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
@@ -271,27 +268,13 @@ include 'connection.php';
               </form>
             </div>
           </div>
-          <!-- col-lg-12-->
+         
         </div>
-        <!-- /row -->
-        <!-- INLINE FORM ELELEMNTS -->
         
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        
-        <!-- /row -->
-        <!-- INPUT MESSAGES -->
-        
-        <!-- /row -->
       </section>
-      <!-- /wrapper -->
+     
     </section>
-    <!-- /MAIN CONTENT -->
-    <!--main content end-->
-    <!--footer start-->
-    
-    <!--footer end-->
-  </section>
+   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.min.js"></script>
